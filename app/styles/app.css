@@ -1,0 +1,19 @@
+.pdfViewer .page {
+	margin: 10px auto 10px;
+	border: 0px solid #fff !important;
+}
+.pdfViewer .page .loadingIcon {
+    background-color:#fff !important;
+}
+.pdfViewerContainer{
+  position: absolute;
+  top:0;
+  bottom: 0;
+  overflow-y: auto;
+  left: 0;
+  right: 0;
+}
+
+#zdprv_pdf_container{
+  margin-top: 100px;
+}

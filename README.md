@@ -21,7 +21,7 @@ You will need the following things properly installed on your computer.
 * `bower install`
 
 ## Running / Development
-
+* `ember server --proxy https://docs.zoho.com/`
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
@@ -38,7 +38,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 * `ember build` (development)
 * `ember build --environment production` (production)
-
+Note: ember proxy is necessary to run this app. ember proxy works in development only. 
 ### Deploying
 
 Specify what it takes to deploy your app.

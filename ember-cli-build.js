@@ -1,10 +1,40 @@
 /* eslint-env node */
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-
+//var Funnel = require('broccoli-funnel');
 module.exports = function(defaults) {
+
   var app = new EmberApp(defaults, {
-    // Add options here
+      storeConfigInMeta:false// Add options here
   });
+
+  // var extraAssets = new Funnel('bower_components/pdfjs-dist', {
+  //     srcDir: '/',
+  //     include: ['/build/pdf.worker.js'],
+  //     destDir: '/assets/pdf'
+  //  });
+
+  app.import('bower_components/pdfjs-dist/build/pdf.js');
+  app.import('bower_components/pdfjs-dist/web/pdf_viewer.js');
+  app.import('bower_components/pdfjs-dist/web/pdf_viewer.css');
+  app.import('bower_components/pdfjs-dist/web/compatibility.js');
+
+  var pickFiles = require('broccoli-static-compiler'),trees = [];
+
+      trees.push(
+                pickFiles('bower_components/pdfjs-dist/build', {
+                		srcDir: '/',
+                        files: [ 'pdf.worker.js' ], // No I18N
+        	                destDir: '/assets/pdf/'
+                	})
+	        );
+
+      trees.push(
+                pickFiles('bower_components/pdfjs-dist/web', {
+                  srcDir: '/',
+                    files: [ 'images/*.*' ], // No I18N
+                      destDir: '/assets/'
+                  })
+          );
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
@@ -19,5 +49,5 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  return app.toTree();
+  return app.toTree(trees);
 };
