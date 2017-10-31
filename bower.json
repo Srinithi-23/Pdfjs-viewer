@@ -1,6 +1,6 @@
 {
   "name": "pdfjs-viewer",
   "dependencies": {
-    "pdfjs-dist": "^1.10.88"
+    "pdfjs-dist": "1.7.331"
   }
 }
